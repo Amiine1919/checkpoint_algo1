@@ -1,0 +1,36 @@
+ALGORITHM checkpoint_algo1
+VAR
+
+  lenght_str : INTEGER:=0;
+  nb_words : INTEGER := 0;
+  nb_vowels : INTEGER := 0;
+  i : INTEGER :=0;
+  str := STRING :="";
+  sentence:= STRING :"";
+
+BEGIN
+
+  Write ("give a sentence");
+  Read (sentence);
+  str := UPERCASE (sentence);
+  lenght_str := str.length;  
+  FOR i FROM 0 TO lenght_str-1 DO 
+    IF (str[i]="A" or str[i]="E" or str[i]="I" or str[i]="O" or str[i]="U" or str[i]="Y") THEN
+      nb_vowels:=nb_vowels+1;
+    ELSE
+      i++;
+    END_IF
+
+  REPEAT
+    IF (str[i]=" ") THEN
+      nb_words++;
+    ELSE
+      i++;
+    END_IF
+  UNTIL (str[i]=".")
+
+  write("The length of the sentence is :", lenght_str );
+  write("The number of words in the sentence is :", nb_words );
+  write("The number of vowels in the sentence is :", nb_vowels );
+
+END
